@@ -9,10 +9,22 @@ public class PlayerController : MonoBehaviour
     public Transform holdPoint; // assign a point above the head in inspector
 
     public void PickTrash(Trash trash)
-    {   
+    {
         var rotator = trash.GetComponent<ItemFeedback>();
-        if(rotator != null ) rotator.enabled = false;
-        
+        if (rotator != null) rotator.enabled = false;
+
+        var outline = trash.GetComponent<Outline>();
+        if (outline != null)
+        {
+            switch (trash.trashID)
+            {
+                case 10: outline.OutlineColor = Color.blue; break;
+                case 11: outline.OutlineColor = Color.yellow; break;
+                case 12: outline.OutlineColor = Color.green; break;
+            }
+            outline.enabled = true;
+        }
+
         if (currentTrash != null)
             return;
 
