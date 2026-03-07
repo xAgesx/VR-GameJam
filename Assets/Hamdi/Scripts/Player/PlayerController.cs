@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour
     public Transform holdPoint; // assign a point above the head in inspector
 
     public void PickTrash(Trash trash)
-    {
+    {   
+        var rotator = trash.GetComponent<ItemFeedback>();
+        if(rotator != null ) rotator.enabled = false;
+        
         if (currentTrash != null)
             return;
 
