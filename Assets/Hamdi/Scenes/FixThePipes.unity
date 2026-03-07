@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.14799136
       objectReference: {fileID: 0}
+    - target: {fileID: 2714539913127818678, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
+      propertyPath: m_Name
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4096252870581365067, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: offset.y
       value: 4
@@ -523,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6394947053674641577, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_Name
-      value: Player 2 (1)
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 6469910534590134417, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,7 +710,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1608604690056252790, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Name
-      value: Player 1 (1)
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 6179480701397571068, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Height
@@ -731,6 +735,10 @@ PrefabInstance:
     - target: {fileID: 6254775567110130498, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: offset.z
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573948357482876310, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
+      propertyPath: m_Name
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 7199512300317505639, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_LocalPosition.x
