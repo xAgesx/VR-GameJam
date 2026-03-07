@@ -11,21 +11,21 @@ public class PlayerMovement : MonoBehaviour
     public PlayerID player;
 
     public float moveSpeed = 5f;
-    public float jumpForce = 7f;
+    public float rotationSpeed = 10f;
 
     private Rigidbody rb;
-    private bool isGrounded = true;
+    public Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         float horizontal = 0f;
         float vertical = 0f;
-        bool jumpPressed = false;
 
         if (player == PlayerID.Player1)
         {
@@ -33,8 +33,6 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.D)) horizontal = 1;
             if (Input.GetKey(KeyCode.W)) vertical = 1;
             if (Input.GetKey(KeyCode.S)) vertical = -1;
-
-            jumpPressed = Input.GetKeyDown(KeyCode.LeftShift);
         }
         else if (player == PlayerID.Player2)
         {
@@ -42,28 +40,25 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow)) horizontal = 1;
             if (Input.GetKey(KeyCode.UpArrow)) vertical = 1;
             if (Input.GetKey(KeyCode.DownArrow)) vertical = -1;
-
-            jumpPressed = Input.GetKeyDown(KeyCode.RightShift);
         }
 
-        Vector3 move = new Vector3(horizontal, 0, vertical) * moveSpeed;
+        Vector3 move = new Vector3(horizontal, 0, vertical);
+
+        // Movement
         Vector3 velocity = rb.linearVelocity;
-        velocity.x = move.x;
-        velocity.z = move.z;
+        velocity.x = move.x * moveSpeed;
+        velocity.z = move.z * moveSpeed;
         rb.linearVelocity = velocity;
 
-        if (jumpPressed && isGrounded)
+        // Rotation
+        if (move != Vector3.zero)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            Quaternion targetRotation = Quaternion.LookRotation(move);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.contacts[0].normal.y > 0.5f)
-        {
-            isGrounded = true;
-        }
+        // Animation
+        bool isMoving = move != Vector3.zero;
+        animator.SetBool("isWalking", isMoving);
     }
 }
