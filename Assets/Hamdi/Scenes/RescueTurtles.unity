@@ -377,13 +377,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.45374554, y: 0.12561318, z: -0.3237762, w: -0.8206737}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 55.7, y: 8.948, z: 407.79498}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,6 +793,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a013bb0f02d76c46902c107ad0ffef2, type: 3}
+--- !u!1001 &1917253868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6325064627012420793, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 022b33131e310f84fb00f256c9f160f7, type: 3}
+    - target: {fileID: 6325064627012420793, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 022b33131e310f84fb00f256c9f160f7, type: 3}
+    - target: {fileID: 7494904389557421659, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1180.1104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 444.27933
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -215.21667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
 --- !u!1 &2024151948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1300,7 @@ Camera:
     serializedVersion: 2
     x: 0.5
     y: 0
-    width: 0.495
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1434,7 +1499,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.495
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1611,3 +1676,4 @@ SceneRoots:
   - {fileID: 1327229068}
   - {fileID: 1040425657}
   - {fileID: 168997276}
+  - {fileID: 1917253868}

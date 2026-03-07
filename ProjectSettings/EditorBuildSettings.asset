@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Hamdi/Scenes/MainMenu.unity
+    guid: 67142f1d98d681444b64af31c877434f
+  - enabled: 1
     path: Assets/Hamdi/Scenes/TrashAndCans.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Hamdi/Scenes/RescueTurtles.unity
+    guid: 79d8195f9a044f7479c83fae8ef7ac98
+  - enabled: 1
+    path: Assets/Hamdi/Scenes/FixThePipes.unity
+    guid: 072feb206b9210c4c9ccd965c4684082
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
