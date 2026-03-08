@@ -145,6 +145,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 1
   Yoffset: -0.15
 --- !u!1 &59365515
 GameObject:
@@ -648,6 +649,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1 &324610770
 GameObject:
@@ -1170,6 +1172,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1 &784222188
 GameObject:
@@ -2460,6 +2463,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!4 &1260220508 stripped
 Transform:
@@ -3058,6 +3062,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1 &1604848847 stripped
 GameObject:
@@ -3085,6 +3090,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!4 &1612392703 stripped
 Transform:
@@ -3384,6 +3390,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1001 &1723051225
 PrefabInstance:
@@ -3483,6 +3490,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1 &1763373057
 GameObject:
@@ -3541,6 +3549,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 1
   Yoffset: -0.15
 --- !u!1 &1795576829 stripped
 GameObject:
@@ -3568,6 +3577,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 1
   Yoffset: -0.15
 --- !u!1 &1809294308
 GameObject:
@@ -4008,6 +4018,7 @@ MonoBehaviour:
   maxDamages: 1
   spawnDelay: 3
   minDistanceBetweenDamages: 5
+  continuosSpawn: 0
   Yoffset: -0.15
 --- !u!1001 &1959597629
 PrefabInstance:
