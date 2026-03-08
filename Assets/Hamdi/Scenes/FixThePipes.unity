@@ -2380,9 +2380,17 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5808659667255168159, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
+      propertyPath: m_TagString
+      value: SFX
+      objectReference: {fileID: 0}
     - target: {fileID: 6394947053674641577, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427598164683622230, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
+      propertyPath: m_TagString
+      value: SFX
       objectReference: {fileID: 0}
     - target: {fileID: 6469910534590134417, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2915,6 +2923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 7494904389557421659, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
+      propertyPath: m_TagString
+      value: BGM
+      objectReference: {fileID: 0}
     - target: {fileID: 8976776872457882207, guid: 843aa755bb1d33049a115d88f97da578, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1180.1104
@@ -3178,6 +3190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1983957136332055720, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
+      propertyPath: m_TagString
+      value: SFX
+      objectReference: {fileID: 0}
     - target: {fileID: 6179480701397571068, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Height
       value: 1.3019987
@@ -3205,6 +3221,10 @@ PrefabInstance:
     - target: {fileID: 6573948357482876310, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709983116570091962, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
+      propertyPath: m_TagString
+      value: SFX
       objectReference: {fileID: 0}
     - target: {fileID: 7199512300317505639, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_LocalPosition.x
