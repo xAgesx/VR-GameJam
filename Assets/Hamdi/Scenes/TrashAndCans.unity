@@ -39626,10 +39626,6 @@ PrefabInstance:
       propertyPath: offset.z
       value: -5
       objectReference: {fileID: 0}
-    - target: {fileID: 4530447482336594257, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
-      propertyPath: player
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4740401455446908036, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
@@ -39677,10 +39673,6 @@ PrefabInstance:
     - target: {fileID: 6469910534590134417, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7051305427034270906, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41408,10 +41400,6 @@ PrefabInstance:
     - target: {fileID: 1608604690056252790, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Name
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3333532039698474363, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6179480701397571068, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Height

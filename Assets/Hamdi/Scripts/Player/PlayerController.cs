@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 
     public Transform holdPoint; // assign a point above the head in inspector
 
+    public AudioSource positiveScoreAudio;
+    public AudioSource negativeScoreAudio;
+
     public void PickTrash(Trash trash)
     {
         var rotator = trash.GetComponent<ItemFeedback>();
@@ -37,6 +40,16 @@ public class PlayerController : MonoBehaviour
 
     public void AddScore(int amount)
     {
+        if (amount > 0)
+        {
+            if (positiveScoreAudio != null)
+                positiveScoreAudio.Play();
+        }
+        else if (amount < 0)
+        {
+            if (negativeScoreAudio != null)
+                negativeScoreAudio.Play();
+        }
         playerScore += amount;
 
         if (playerScore < 0)
