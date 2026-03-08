@@ -8,6 +8,8 @@ TagManager:
   - Challenge
   - Solo
   - QuickGame
+  - SFX
+  - BGM
   layers:
   - Default
   - TransparentFX

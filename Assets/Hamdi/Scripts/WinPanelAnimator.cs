@@ -14,12 +14,15 @@ public class WinPanelAnimator : MonoBehaviour
     public float typingSpeed = 0.05f;
     public string[] winMessage ;
 
+    public AudioSource winsound;
+
     void OnEnable()
     {
         // Reset states
         imageCharacter.SetActive(false);
         chatBubble.SetActive(false);
         chatText.text = "";
+        winsound.Play();
 
         StartCoroutine(PlayWinSequence());
     }

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject TutorialPanel;
     public GameObject WinnerPanel;
+    public GameObject SettingsPanel;
 
     public TextMeshProUGUI winnerText;
 
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Existing round timer update
         if (roundActive && !roundEnded)
         {
             timer -= Time.deltaTime;
@@ -109,7 +111,25 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateUI();
+
+        // Only allow settings toggle if NOT in main menu
+        if (SceneManager.GetActiveScene().name != mainMenuScene)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (SettingsPanel != null)
+                {
+                    bool isActive = SettingsPanel.activeSelf;
+                    if (isActive)
+                        CloseSettings();
+                    else
+                        OpenSettings();
+                }
+            }
+        }
     }
+
+
 
 
     public void StartGame()
@@ -285,4 +305,32 @@ public class GameManager : MonoBehaviour
     {
         return Mathf.Max(0f, timer);
     }
+
+
+    // Call this to open settings
+    public void OpenSettings()
+    {
+        if (SettingsPanel != null)
+            SettingsPanel.SetActive(true);
+
+        Time.timeScale = 0f; // pause the game
+    }
+
+    // Call this to close settings
+    public void CloseSettings()
+    {
+        if (SettingsPanel != null)
+            SettingsPanel.SetActive(false);
+
+        Time.timeScale = 1f; // resume the game
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f; // ensure game is not paused
+        SceneManager.LoadScene(mainMenuScene);
+    }
+
 }
+
+
