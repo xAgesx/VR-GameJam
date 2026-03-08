@@ -741,6 +741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
+  gamepadID: 2
+  useKeyboard: 0
   moveSpeed: 5
   rotationSpeed: 10
   animator: {fileID: 7191290997299158822}
@@ -1299,7 +1301,7 @@ GameObject:
   - component: {fileID: 7207679126994923281}
   m_Layer: 0
   m_Name: MinusScoreSFX
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1529,7 @@ GameObject:
   - component: {fileID: 7543354595925723773}
   m_Layer: 0
   m_Name: AddScoreSFX
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

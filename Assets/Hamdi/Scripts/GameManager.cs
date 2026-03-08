@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI winnerText;
 
+    public bool isKeyboard = false;
     void Awake()
     {
         if (Instance == null)
@@ -218,6 +219,8 @@ public class GameManager : MonoBehaviour
 
             if (p.name.Contains("2"))
                 player2 = p;
+            PlayerMovement pm = p.gameObject.GetComponent<PlayerMovement>();
+            pm.useKeyboard = isKeyboard;
         }
 
         if (player1 == null || player2 == null)

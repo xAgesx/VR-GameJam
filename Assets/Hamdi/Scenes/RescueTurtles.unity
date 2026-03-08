@@ -413,14 +413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1983957136332055720, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
-      propertyPath: m_TagString
-      value: SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709983116570091962, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
-      propertyPath: m_TagString
-      value: SFX
-      objectReference: {fileID: 0}
     - target: {fileID: 7199512300317505639, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.02
@@ -474,17 +466,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5808659667255168159, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
-      propertyPath: m_TagString
-      value: SFX
-      objectReference: {fileID: 0}
     - target: {fileID: 6394947053674641577, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_Name
       value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6427598164683622230, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
-      propertyPath: m_TagString
-      value: SFX
       objectReference: {fileID: 0}
     - target: {fileID: 6469910534590134417, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_LocalPosition.x
