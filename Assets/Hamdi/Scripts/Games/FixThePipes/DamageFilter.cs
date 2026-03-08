@@ -13,6 +13,8 @@ public class DamageFilter : MonoBehaviour
     {
         if (repairingPlayer != null)
         {
+            
+            
             repairProgress += repairSpeed * Time.deltaTime;
 
             if (repairProgress >= 100f)
@@ -28,6 +30,7 @@ public class DamageFilter : MonoBehaviour
 
         pipe.OnFilterRepaired(gameObject);
 
+        repairingPlayer.transform.GetChild(1).GetComponent<Animator>().SetBool("Fixing",false);
         Destroy(gameObject);
     }
 
@@ -39,6 +42,7 @@ public class DamageFilter : MonoBehaviour
         if (player != null)
         {
             repairingPlayer = player;
+            repairingPlayer.transform.GetChild(1).GetComponent<Animator>().SetBool("Fixing",true);
         }
     }
 
@@ -48,7 +52,9 @@ public class DamageFilter : MonoBehaviour
 
         if (player == repairingPlayer)
         {
+            repairingPlayer.transform.GetChild(1).GetComponent<Animator>().SetBool("Fixing",false);
             repairingPlayer = null;
+            
         }
     }
 }

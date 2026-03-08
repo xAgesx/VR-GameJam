@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Turtle : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Turtle : MonoBehaviour
 
     private PlayerController player1;
     private PlayerController player2;
-
+    PlayerController player;
     private bool freed = false;
 
     public GameObject wire; 
@@ -50,14 +51,18 @@ public class Turtle : MonoBehaviour
 
         if (winner != null)
             winner.AddScore(50); // reward points
-
+        
+        player.transform.GetChild(1).GetComponent<Animator>().SetBool("Bending",false);
         Destroy(gameObject, 5f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
+        player = other.GetComponent<PlayerController>();
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<TurtleAI>().enabled = false;
 
+        Debug.Log(player);
         if (player == null)
             return;
 
@@ -65,11 +70,17 @@ public class Turtle : MonoBehaviour
             player1 = player;
         else
             player2 = player;
+
+        player.transform.GetChild(1).GetComponent<Animator>().SetBool("Bending",true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
+        player = other.GetComponent<PlayerController>();
+        GetComponent<NavMeshAgent>().enabled = true;
+        GetComponent<TurtleAI>().enabled = true;
+
+        
 
         if (player == null)
             return;
@@ -79,5 +90,9 @@ public class Turtle : MonoBehaviour
 
         if (player == player2)
             player2 = null;
+
+        player.transform.GetChild(1).GetComponent<Animator>().SetBool("Bending",false);
+
+
     }
 }
