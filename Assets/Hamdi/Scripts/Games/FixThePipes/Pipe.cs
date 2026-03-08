@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class Pipe : MonoBehaviour
     public int maxDamages = 5;
     public float spawnDelay = 3f;
     public float minDistanceBetweenDamages = 1.5f;
-
+    public bool continuosSpawn = false;
     private Collider pipeCollider;
     public float Yoffset ;
     private List<GameObject> activeDamages = new List<GameObject>();
@@ -20,10 +21,27 @@ public class Pipe : MonoBehaviour
         for (int i = 0; i < maxDamages; i++)
         {
             SpawnDamage();
+            
         }
+        //Spawn periodically for middle pipes
+        if (continuosSpawn)
+            {
+                StartCoroutine("SpawnPerdiodically");
+            }
     }
+    public IEnumerator SpawnPerdiodically()
+    {
+        
+        yield return new WaitForSeconds(20f);
 
-    void SpawnDamage()
+    while (continuosSpawn)
+    {
+        yield return new WaitForSeconds(Random.Range(2, 6));
+        SpawnDamage();
+        Debug.Log("Periodic spawn");
+    }
+    }
+    public void SpawnDamage()
     {
         if (activeDamages.Count >= maxDamages)
             return;
