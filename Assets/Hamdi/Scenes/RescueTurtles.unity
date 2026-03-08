@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turtlePrefabs:
-  - {fileID: 1197473848930876394, guid: 9a013bb0f02d76c46902c107ad0ffef2, type: 3}
+  - {fileID: 9027312872448804049, guid: 3f8bae66835a3444892befef488bb957, type: 3}
   turtleAmount: 4
   spawnRadius: 30
 --- !u!23 &8342490641800431051
@@ -2826,7 +2826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turtlePrefabs:
-  - {fileID: 1197473848930876394, guid: 9a013bb0f02d76c46902c107ad0ffef2, type: 3}
+  - {fileID: 9027312872448804049, guid: 3f8bae66835a3444892befef488bb957, type: 3}
   turtleAmount: 4
   spawnRadius: 30
 --- !u!23 &9054925034903948770
