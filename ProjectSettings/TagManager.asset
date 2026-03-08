@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Trash
   - Challenge
+  - Solo
+  - QuickGame
   layers:
   - Default
   - TransparentFX

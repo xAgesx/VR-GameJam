@@ -17,12 +17,32 @@ public class GameManager : MonoBehaviour
     private List<string> shuffledScenes = new List<string>();
     private int currentGameIndex = 0;
 
+    public bool soloMode = false;
+
     [Header("Round Settings")]
+   
     public float roundTime = 60f;
 
     public float timer;
     public bool roundActive = false;
     public bool roundEnded = false;
+
+    [Header("UI")]
+    public TextMeshProUGUI player1ScoreText;
+    public TextMeshProUGUI player2ScoreText;
+
+    public TextMeshProUGUI player1RoundsText;
+    public TextMeshProUGUI player2RoundsText;
+
+    public TextMeshProUGUI timerText;
+
+    public GameObject Player2UI;
+    public GameObject SplitScreenLine;
+
+
+    private int player1Rounds = 0;
+    private int player2Rounds = 0;
+
 
     public PlayerController player1;
     public PlayerController player2;
@@ -42,7 +62,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
         }
     }
 
@@ -66,6 +90,8 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+            soloMode = false;
+
             return;
         }
 
@@ -74,14 +100,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!roundActive || roundEnded)
-            return;
+        if (roundActive && !roundEnded)
+        {
+            timer -= Time.deltaTime;
 
-        timer -= Time.deltaTime;
+            if (timer <= 0f)
+                EndRound();
+        }
 
-        if (timer <= 0f)
-            EndRound();
+        UpdateUI();
     }
+
 
     public void StartGame()
     {
@@ -133,6 +162,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadSoloGame(string sceneName)
+    {
+        if (gameScenes.Contains(sceneName))
+        {
+            soloMode = true;
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Scene not in gameScenes list: " + sceneName);
+        }
+    }
+
     public void StartRound()
     {
         timer = roundTime;
@@ -161,6 +203,30 @@ public class GameManager : MonoBehaviour
         if (player1 == null || player2 == null)
             Debug.LogWarning("Players not found!");
 
+        if (soloMode && player2 != null)
+        {
+            player2.transform.parent.gameObject.SetActive(false);
+            if (Player2UI != null)
+                Player2UI.SetActive(false);
+            if (SplitScreenLine != null)
+                SplitScreenLine.SetActive(false);
+            
+
+
+            player1.transform.parent.GetChild(0).GetComponent<Camera>().rect = new Rect(0f, 0f, 1f, 1f);
+
+        }
+        else if (!soloMode && player2 != null)
+        {
+            player2.transform.parent.gameObject.SetActive(true);
+            if (Player2UI != null)
+                Player2UI.SetActive(true);
+            if (SplitScreenLine != null)
+                SplitScreenLine.SetActive(true);
+
+            player1.transform.parent.GetChild(0).GetComponent<Camera>().rect = new Rect(0f, 0f, 0.5f, 1f);
+        }
+
         if (TutorialPanel != null)
             TutorialPanel.SetActive(true);
     }
@@ -175,9 +241,15 @@ public class GameManager : MonoBehaviour
         if (player1 != null && player2 != null)
         {
             if (player1.playerScore > player2.playerScore)
+            {
                 winner = player1;
+                player1Rounds++;
+            }
             else if (player2.playerScore > player1.playerScore)
+            {
                 winner = player2;
+                player2Rounds++;
+            }
         }
 
         if (winner != null)
@@ -188,6 +260,26 @@ public class GameManager : MonoBehaviour
         if (WinnerPanel != null)
             WinnerPanel.SetActive(true);
     }
+
+
+    void UpdateUI()
+    {
+        if (player1 != null)
+            player1ScoreText.text = player1.playerScore.ToString();
+
+        if (player2 != null)
+            player2ScoreText.text = player2.playerScore.ToString();
+
+        player1RoundsText.text = player1Rounds.ToString();
+        player2RoundsText.text = player2Rounds.ToString();
+
+        float time = GetTimer();
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+
+        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+    }
+
 
     public float GetTimer()
     {
