@@ -33,11 +33,13 @@ public class DamageFilter : MonoBehaviour
         repairingPlayer.transform.GetChild(1).GetComponent<Animator>().SetBool("Fixing",false);
         Destroy(gameObject);
     }
+    
 
 
     private void OnTriggerEnter(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
+        Debug.Log(player);
 
         if (player != null)
         {
