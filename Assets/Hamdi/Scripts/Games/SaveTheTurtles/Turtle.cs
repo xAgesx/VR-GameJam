@@ -12,7 +12,7 @@ public class Turtle : MonoBehaviour
 
     private bool freed = false;
 
-    public GameObject wire; // assign child object in inspector
+    public GameObject wire; 
 
     void Update()
     {
@@ -37,7 +37,6 @@ public class Turtle : MonoBehaviour
     {
         freed = true;
 
-        // remove wire
         if (wire != null)
             wire.SetActive(false);
 
@@ -52,7 +51,6 @@ public class Turtle : MonoBehaviour
         if (winner != null)
             winner.AddScore(50); // reward points
 
-        // despawn after 5 seconds
         Destroy(gameObject, 5f);
     }
 

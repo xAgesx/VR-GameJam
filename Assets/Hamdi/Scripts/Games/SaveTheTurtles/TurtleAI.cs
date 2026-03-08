@@ -14,9 +14,12 @@ public class TurtleAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         timer = wanderDelay;
+        agent.updateRotation = true;
     }
 
     void Update()
+{
+    if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
     {
         timer += Time.deltaTime;
 
@@ -27,6 +30,7 @@ public class TurtleAI : MonoBehaviour
             timer = 0;
         }
     }
+}
 
     Vector3 RandomNavSphere(Vector3 origin, float dist)
     {
