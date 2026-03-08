@@ -10,7 +10,7 @@ public class Pipe : MonoBehaviour
     public float minDistanceBetweenDamages = 1.5f;
 
     private Collider pipeCollider;
-
+    public float Yoffset ;
     private List<GameObject> activeDamages = new List<GameObject>();
 
     void Start()
@@ -70,7 +70,7 @@ public class Pipe : MonoBehaviour
 
         return new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
-            (bounds.min.y + bounds.max.y) / 2,
+            Yoffset,
             (bounds.min.z + bounds.max.z) / 2
         );
     }
