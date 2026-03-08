@@ -1,17 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Scenes")]
+    public string mainMenuScene = "MainMenu";
+
+    [Tooltip("Add all minigame scene names here")]
+    public List<string> gameScenes = new List<string>();
+
+    private List<string> shuffledScenes = new List<string>();
+    private int currentGameIndex = 0;
+
     [Header("Round Settings")]
-    public float roundTime = 60f; // editable in inspector
-    public int mainMenuSceneIndex = 0; // index of main menu
-    public int firstGameSceneIndex = 1; // index of first game
-    public int lastGameSceneIndex = 3;  // index of last game
+    public float roundTime = 60f;
 
     public float timer;
     public bool roundActive = false;
@@ -22,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject TutorialPanel;
     public GameObject WinnerPanel;
+
+    public TextMeshProUGUI winnerText;
 
     void Awake()
     {
@@ -39,13 +48,11 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reset round state
         roundActive = false;
         roundEnded = false;
 
-        if (scene.buildIndex == mainMenuSceneIndex)
+        if (scene.name == mainMenuScene)
         {
-            // Find the button tagged "Challenge"
             GameObject startButtonObj = GameObject.FindWithTag("Challenge");
 
             if (startButtonObj != null)
@@ -54,30 +61,15 @@ public class GameManager : MonoBehaviour
 
                 if (startButton != null)
                 {
-                    // Clear previous listeners just in case
                     startButton.onClick.RemoveAllListeners();
-
-                    // Assign StartGame to button
                     startButton.onClick.AddListener(StartGame);
-
-                    Debug.Log("Start button assigned to StartGame()");
-                }
-                else
-                {
-                    Debug.LogWarning("Object with tag 'Challenge' does not have a Button component!");
                 }
             }
-            else
-            {
-                Debug.LogWarning("No GameObject found with tag 'Challenge' in Main Menu!");
-            }
 
-            return; // no players in main menu, skip the rest
+            return;
         }
 
-        // For game scenes, find players and start round
         FindPlayers();
-        //StartRound();
     }
 
     void Update()
@@ -88,30 +80,68 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
-        {
             EndRound();
+    }
+
+    public void StartGame()
+    {
+        ShuffleGames();
+
+        if (shuffledScenes.Count > 0)
+        {
+            currentGameIndex = 0;
+            SceneManager.LoadScene(shuffledScenes[currentGameIndex]);
         }
     }
 
-
-    // Called from Main Menu button
-    public void StartGame()
+    void ShuffleGames()
     {
-        SceneManager.LoadScene(firstGameSceneIndex);
+        shuffledScenes = new List<string>(gameScenes);
+
+        for (int i = 0; i < shuffledScenes.Count; i++)
+        {
+            int randomIndex = Random.Range(i, shuffledScenes.Count);
+            string temp = shuffledScenes[i];
+            shuffledScenes[i] = shuffledScenes[randomIndex];
+            shuffledScenes[randomIndex] = temp;
+        }
     }
 
-    // Starts the timer once in a game scene
+    public void LoadNextScene()
+    {
+        currentGameIndex++;
+
+        if (currentGameIndex >= shuffledScenes.Count)
+        {
+            SceneManager.LoadScene(mainMenuScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(shuffledScenes[currentGameIndex]);
+        }
+    }
+
+    public void LoadGame(string sceneName)
+    {
+        if (gameScenes.Contains(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Scene not in gameScenes list: " + sceneName);
+        }
+    }
+
     public void StartRound()
     {
         timer = roundTime;
         roundActive = true;
-        Debug.Log("Round started! Timer running.");
     }
 
     void FindPlayers()
     {
-        // Skip main menu
-        if (SceneManager.GetActiveScene().buildIndex == mainMenuSceneIndex)
+        if (SceneManager.GetActiveScene().name == mainMenuScene)
             return;
 
         PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
@@ -128,10 +158,11 @@ public class GameManager : MonoBehaviour
                 player2 = p;
         }
 
-        if (player1 == null || player2 == null )
-            Debug.LogWarning("Player1 or Player2 not found in scene!");
+        if (player1 == null || player2 == null)
+            Debug.LogWarning("Players not found!");
 
-        TutorialPanel.SetActive(true);
+        if (TutorialPanel != null)
+            TutorialPanel.SetActive(true);
     }
 
     void EndRound()
@@ -150,24 +181,14 @@ public class GameManager : MonoBehaviour
         }
 
         if (winner != null)
-            WinnerPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "Winner: " + winner.name;
+            winnerText.text = "Winner: " + winner.name;
         else
-            WinnerPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "Draw";
+            winnerText.text = "Draw";
 
-        WinnerPanel.SetActive(true);
-
-    }
-    public void LoadNextScene()
-    {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-
-        if (currentScene >= lastGameSceneIndex)
-            SceneManager.LoadScene(mainMenuSceneIndex);
-        else
-            SceneManager.LoadScene(currentScene + 1);
+        if (WinnerPanel != null)
+            WinnerPanel.SetActive(true);
     }
 
-    // Optional: return current timer for UI display
     public float GetTimer()
     {
         return Mathf.Max(0f, timer);

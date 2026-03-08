@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2003826156713537373}
   - component: {fileID: 4740401455446908036}
-  - component: {fileID: 8047533932806569686}
   - component: {fileID: 7873613023477664772}
   - component: {fileID: 4096252870581365067}
   m_Layer: 0
@@ -86,14 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8047533932806569686
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396962062690441869}
-  m_Enabled: 1
 --- !u!114 &7873613023477664772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5530061065324177040}
-  offset: {x: 0, y: 8, z: -10}
+  offset: {x: 0, y: 4, z: -5}
 --- !u!1 &633274792332753709
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +625,7 @@ GameObject:
   - component: {fileID: 7262555228169759750}
   - component: {fileID: 2099678336907033190}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -749,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5cc8264074fb249ba140565fbe2c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 1
   moveSpeed: 5
   rotationSpeed: 10
   animator: {fileID: 7191290997299158822}
@@ -787,10 +778,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.22046089
+  m_Height: 1.2959827
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.008221626, y: 0.14799136, z: 0}
 --- !u!1 &3006290609367556968
 GameObject:
   m_ObjectHideFlags: 0
