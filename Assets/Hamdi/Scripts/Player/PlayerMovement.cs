@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static PlayerMovement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +10,12 @@ public class PlayerMovement : MonoBehaviour
         Player2
     }
 
+
     public PlayerID player;
+    public int gamepadID;
+
+    [Header("Input Mode")]
+    public bool useKeyboard = true;
 
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
@@ -19,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,22 +33,48 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = 0f;
         float vertical = 0f;
 
-        if (player == PlayerID.Player1)
+        Vector3 move;
+
+        if (useKeyboard)
         {
-            if (Input.GetKey(KeyCode.A)) horizontal = -1;
-            if (Input.GetKey(KeyCode.D)) horizontal = 1;
-            if (Input.GetKey(KeyCode.W)) vertical = 1;
-            if (Input.GetKey(KeyCode.S)) vertical = -1;
+            if (player == PlayerID.Player1)
+            {
+                if (Input.GetKey(KeyCode.A)) horizontal = -1;
+                if (Input.GetKey(KeyCode.D)) horizontal = 1;
+                if (Input.GetKey(KeyCode.W)) vertical = 1;
+                if (Input.GetKey(KeyCode.S)) vertical = -1;
+            }
+            else if (player == PlayerID.Player2)
+            {
+                if (Input.GetKey(KeyCode.LeftArrow)) horizontal = -1;
+                if (Input.GetKey(KeyCode.RightArrow)) horizontal = 1;
+                if (Input.GetKey(KeyCode.UpArrow)) vertical = 1;
+                if (Input.GetKey(KeyCode.DownArrow)) vertical = -1;
+            }
+
+            move = new Vector3(horizontal, 0, vertical);
         }
-        else if (player == PlayerID.Player2)
+        else
         {
-            if (Input.GetKey(KeyCode.LeftArrow)) horizontal = -1;
-            if (Input.GetKey(KeyCode.RightArrow)) horizontal = 1;
-            if (Input.GetKey(KeyCode.UpArrow)) vertical = 1;
-            if (Input.GetKey(KeyCode.DownArrow)) vertical = -1;
+            var gamepads = Gamepad.all;
+            var gamepad = gamepads[gamepadID];
+
+            
+            Vector2 stick = gamepad.leftStick.ReadValue();
+
+            // Map joystick directly to world axes (like keyboard)
+            float movementH = stick.x;
+            float movementV = stick.y;
+
+            // Optional: add deadzone to avoid drift
+            float deadzone = 0.2f;
+            if (Mathf.Abs(movementH) < deadzone) movementH = 0;
+            if (Mathf.Abs(movementV) < deadzone) movementV = 0;
+
+            move = new Vector3(movementH, 0, movementV).normalized;
         }
 
-        Vector3 move = new Vector3(horizontal, 0, vertical);
+        
 
         // Movement
         Vector3 velocity = rb.linearVelocity;
