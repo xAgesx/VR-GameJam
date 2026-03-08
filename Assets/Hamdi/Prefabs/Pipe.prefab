@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 894769710924379033}
   - component: {fileID: 7625113309167328643}
   - component: {fileID: 8059094536476471376}
-  - component: {fileID: 6237281699789480063}
   - component: {fileID: 5047612584163828904}
+  - component: {fileID: 5917273148927374045}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -88,8 +88,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6237281699789480063
-CapsuleCollider:
+--- !u!114 &5047612584163828904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096565591095287886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d7a686573d24944a582fbc4d715b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePrefab: {fileID: 7128227688963698538, guid: 2ad91b0f0c08de44ab2d4c328bb69a9e, type: 3}
+  maxDamages: 5
+  spawnDelay: 3
+  minDistanceBetweenDamages: 1.5
+--- !u!65 &5917273148927374045
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,22 +122,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5047612584163828904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096565591095287886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8d7a686573d24944a582fbc4d715b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePrefab: {fileID: 7128227688963698538, guid: 2ad91b0f0c08de44ab2d4c328bb69a9e, type: 3}
-  spawnDelay: 3
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.7899865, z: 1.0000002}
+  m_Center: {x: 7.328889e-17, y: -0.008152426, z: 0}

@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2187623244291571899}
   - component: {fileID: 6179480701397571068}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,10 +202,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.23239946
+  m_Height: 1.3019987
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15099937, z: 0.04062891}
 --- !u!1 &7017343209062203935
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5
+    x: 0
     y: 0
     width: 0.5
     height: 1
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 6205574762856566404}
-  offset: {x: 0, y: 8, z: -10}
+  offset: {x: 0, y: 4, z: -5}
 --- !u!1 &7407096640680491420
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1876826408451663915, guid: cb47e101af03f6b42af388d7b1a17cbc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02995e95ca0fe804b8469ce45980dd1e, type: 2}
     - target: {fileID: 919132149155446097, guid: cb47e101af03f6b42af388d7b1a17cbc, type: 3}
       propertyPath: m_Name
       value: Running
