@@ -413,6 +413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3746291281557626846, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7199512300317505639, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.02
@@ -466,6 +470,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4530447482336594257, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6394947053674641577, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_Name
       value: Player 2

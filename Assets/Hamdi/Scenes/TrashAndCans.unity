@@ -39630,6 +39630,10 @@ PrefabInstance:
       propertyPath: offset.z
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 4530447482336594257, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
+      propertyPath: useKeyboard
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4740401455446908036, guid: cc9b6755f00422349827c2631c7e5909, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
@@ -41416,6 +41420,10 @@ PrefabInstance:
     - target: {fileID: 1983957136332055720, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_TagString
       value: SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746291281557626846, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
+      propertyPath: useKeyboard
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6179480701397571068, guid: b916dc65bef7b514e94d36353549c5bc, type: 3}
       propertyPath: m_Height
