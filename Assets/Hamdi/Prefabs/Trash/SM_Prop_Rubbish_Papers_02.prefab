@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 23753158368410242}
   - component: {fileID: 64682900623574394}
   - component: {fileID: 8177880006636742315}
+  - component: {fileID: -4206119334883438077}
+  - component: {fileID: -7343407976538906255}
   m_Layer: 0
   m_Name: SM_Prop_Rubbish_Papers_02
   m_TagString: Trash
@@ -123,3 +125,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashID: 11
+--- !u!114 &-4206119334883438077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516741046236204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ff549eb02b0064f82a8899b58a095c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 50, z: 0}
+  amplitude: 0.1
+  frequency: 1
+--- !u!114 &-7343407976538906255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516741046236204}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.40590096, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
