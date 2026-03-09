@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 0
   gamepadID: 0
-  useKeyboard: 0
+  useKeyboard: 1
   moveSpeed: 5
   rotationSpeed: 10
   animator: {fileID: 4309032442731054899}
