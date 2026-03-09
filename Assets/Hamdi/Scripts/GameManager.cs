@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     public Sprite player1Sprite;
     public Sprite player2Sprite;
 
+    public AudioSource resultSFX;
 
     public TextMeshProUGUI winnerText;
 
@@ -404,6 +405,8 @@ public void StartGame()
         }
         if (ResultPanel != null)
             ResultPanel.SetActive(true);
+
+        resultSFX.Play();
     }
 
 }
