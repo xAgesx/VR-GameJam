@@ -57,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             var gamepads = Gamepad.all;
+            if(gamepads[gamepadID] == null)
+            {
+                useKeyboard = true;
+                return;
+            }
             var gamepad = gamepads[gamepadID];
 
             
