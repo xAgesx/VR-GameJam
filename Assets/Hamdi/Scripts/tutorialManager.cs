@@ -4,22 +4,17 @@ using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
-    private TextMeshProUGUI titleText;
-    private TextMeshProUGUI infoText;
+    public TextMeshProUGUI titleText;
+    public TextMeshProUGUI infoText;
 
-    void Awake()
+    void OnEnable()
     {
-        // Get children by name
-        titleText = transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        infoText = transform.Find("Info").GetComponent<TextMeshProUGUI>();
-
         UpdateTutorialText();
     }
 
     void UpdateTutorialText()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-
         switch (sceneName)
         {
             case "TrashAndCans":

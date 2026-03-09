@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -50,10 +51,21 @@ public class GameManager : MonoBehaviour
     public GameObject TutorialPanel;
     public GameObject WinnerPanel;
     public GameObject SettingsPanel;
+    public GameObject ResultPanel;
+
+    public Image playerResultSprite;
+    public TextMeshProUGUI playerResultName;
+
+    public Sprite player1Sprite;
+    public Sprite player2Sprite;
+
 
     public TextMeshProUGUI winnerText;
 
     public bool isKeyboard = false;
+
+    private float gamepadPressCooldown = 0f;
+
     void Awake()
     {
         if (Instance == null)
@@ -128,12 +140,55 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (!isKeyboard)
+        {
+            gamepadPressCooldown -= Time.unscaledDeltaTime;
+
+            var gamepads = Gamepad.all;
+
+            foreach (var pad in gamepads)
+            {
+                if (pad.leftShoulder.wasPressedThisFrame && gamepadPressCooldown <= 0f)
+                {
+                    gamepadPressCooldown = 0.3f; // prevents rapid repeats
+
+                    if (TutorialPanel != null && TutorialPanel.activeSelf)
+                    {
+                        StartRound();
+                        TutorialPanel.SetActive(false);
+                        return;
+                    }
+
+                    if (WinnerPanel != null && WinnerPanel.activeSelf)
+                    {
+                        LoadNextScene();
+                        WinnerPanel.SetActive(false);
+                        return;
+                    }
+
+                    if (ResultPanel != null && ResultPanel.activeSelf)
+                    {
+                        ReturnToMainMenu();
+                        return;
+                    }
+                    else if (SettingsPanel != null)
+                    {
+                        bool isActive = SettingsPanel.activeSelf;
+
+                        if (isActive)
+                            CloseSettings();
+                        else
+                            OpenSettings();
+                    }
+                }
+            }
+        }
+
+
     }
 
-
-
-
-    public void StartGame()
+public void StartGame()
     {
         ShuffleGames();
 
@@ -163,7 +218,8 @@ public class GameManager : MonoBehaviour
 
         if (currentGameIndex >= shuffledScenes.Count)
         {
-            SceneManager.LoadScene(mainMenuScene);
+            ShowResult();
+            //SceneManager.LoadScene(mainMenuScene);
         }
         else
         {
@@ -332,6 +388,22 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f; // ensure game is not paused
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void ShowResult()
+    {
+        if (player1Rounds > player2Rounds)
+        {
+            playerResultSprite.sprite = player1Sprite;
+            playerResultName.text = player1.name;
+        }
+        else if (player1Rounds < player2Rounds)
+        {
+            playerResultSprite.sprite = player2Sprite;
+            playerResultName.text = player2.name;
+        }
+        if (ResultPanel != null)
+            ResultPanel.SetActive(true);
     }
 
 }
